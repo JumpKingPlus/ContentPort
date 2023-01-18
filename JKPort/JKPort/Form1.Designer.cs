@@ -30,44 +30,46 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.main_panel = new System.Windows.Forms.FlowLayoutPanel();
+            this.banner_panel = new System.Windows.Forms.TableLayoutPanel();
+            this.banner_label = new System.Windows.Forms.Label();
+            this.banner_image = new System.Windows.Forms.PictureBox();
             this.porting_table_input = new System.Windows.Forms.TableLayoutPanel();
+            this.folder_button_label = new System.Windows.Forms.Label();
+            this.input_label = new System.Windows.Forms.Label();
+            this.files_button_label = new System.Windows.Forms.Label();
+            this.input_button = new System.Windows.Forms.Button();
+            this.files_button = new System.Windows.Forms.Button();
+            this.output_panel = new System.Windows.Forms.TableLayoutPanel();
+            this.output_label = new System.Windows.Forms.Label();
+            this.output_folder = new System.Windows.Forms.Button();
+            this.output_dir = new System.Windows.Forms.TextBox();
             this.details = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.details_table = new System.Windows.Forms.TableLayoutPanel();
             this.item_size = new System.Windows.Forms.Label();
             this.item_size_label = new System.Windows.Forms.Label();
             this.item_dir_label = new System.Windows.Forms.Label();
             this.item_title = new System.Windows.Forms.Label();
             this.item_dir = new System.Windows.Forms.Label();
             this.item_type = new System.Windows.Forms.Label();
+            this.convert = new System.Windows.Forms.Button();
             this.progress_box = new System.Windows.Forms.GroupBox();
             this.progress_panel = new System.Windows.Forms.FlowLayoutPanel();
             this.total_task_layout = new System.Windows.Forms.TableLayoutPanel();
+            this.total_task_image = new System.Windows.Forms.PictureBox();
             this.progress_total = new System.Windows.Forms.Label();
             this.progressBarTotal = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.input_label = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.input_button = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.total_task_image = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.files_dialog = new System.Windows.Forms.OpenFileDialog();
+            this.folder_dialog = new System.Windows.Forms.FolderBrowserDialog();
             this.main_panel.SuspendLayout();
+            this.banner_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.banner_image)).BeginInit();
             this.porting_table_input.SuspendLayout();
+            this.output_panel.SuspendLayout();
             this.details.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.details_table.SuspendLayout();
             this.progress_box.SuspendLayout();
             this.progress_panel.SuspendLayout();
             this.total_task_layout.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.total_task_image)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +77,11 @@
             // 
             this.main_panel.AutoSize = true;
             this.main_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.main_panel.Controls.Add(this.tableLayoutPanel2);
+            this.main_panel.Controls.Add(this.banner_panel);
             this.main_panel.Controls.Add(this.porting_table_input);
-            this.main_panel.Controls.Add(this.tableLayoutPanel3);
+            this.main_panel.Controls.Add(this.output_panel);
             this.main_panel.Controls.Add(this.details);
-            this.main_panel.Controls.Add(this.button2);
+            this.main_panel.Controls.Add(this.convert);
             this.main_panel.Controls.Add(this.progress_box);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -89,6 +91,49 @@
             this.main_panel.Size = new System.Drawing.Size(800, 679);
             this.main_panel.TabIndex = 0;
             // 
+            // banner_panel
+            // 
+            this.banner_panel.BackColor = System.Drawing.Color.LemonChiffon;
+            this.banner_panel.ColumnCount = 2;
+            this.banner_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.banner_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.banner_panel.Controls.Add(this.banner_label, 1, 0);
+            this.banner_panel.Controls.Add(this.banner_image, 0, 0);
+            this.banner_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.banner_panel.Location = new System.Drawing.Point(7, 7);
+            this.banner_panel.Name = "banner_panel";
+            this.banner_panel.RowCount = 1;
+            this.banner_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.banner_panel.Size = new System.Drawing.Size(441, 71);
+            this.banner_panel.TabIndex = 12;
+            // 
+            // banner_label
+            // 
+            this.banner_label.AutoSize = true;
+            this.banner_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.banner_label.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.banner_label.Location = new System.Drawing.Point(63, 6);
+            this.banner_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.banner_label.Name = "banner_label";
+            this.banner_label.Padding = new System.Windows.Forms.Padding(3);
+            this.banner_label.Size = new System.Drawing.Size(375, 59);
+            this.banner_label.TabIndex = 11;
+            this.banner_label.Text = "\'JumpKingPlus Content Port\' is currently in beta.\r\nLet us know if you find any is" +
+    "sues or bugs over on the official Jump King Discord server.\r\nJumpKingPlus, 2023." +
+    "";
+            // 
+            // banner_image
+            // 
+            this.banner_image.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.banner_image.Image = global::JKPort.Properties.Resources.favicon;
+            this.banner_image.Location = new System.Drawing.Point(9, 9);
+            this.banner_image.Margin = new System.Windows.Forms.Padding(9, 9, 3, 9);
+            this.banner_image.Name = "banner_image";
+            this.banner_image.Size = new System.Drawing.Size(48, 53);
+            this.banner_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.banner_image.TabIndex = 12;
+            this.banner_image.TabStop = false;
+            // 
             // porting_table_input
             // 
             this.porting_table_input.AutoSize = true;
@@ -96,11 +141,11 @@
             this.porting_table_input.ColumnCount = 2;
             this.porting_table_input.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.porting_table_input.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.porting_table_input.Controls.Add(this.label3, 1, 2);
+            this.porting_table_input.Controls.Add(this.folder_button_label, 1, 2);
             this.porting_table_input.Controls.Add(this.input_label, 0, 0);
-            this.porting_table_input.Controls.Add(this.label4, 1, 1);
+            this.porting_table_input.Controls.Add(this.files_button_label, 1, 1);
             this.porting_table_input.Controls.Add(this.input_button, 0, 2);
-            this.porting_table_input.Controls.Add(this.button3, 0, 1);
+            this.porting_table_input.Controls.Add(this.files_button, 0, 1);
             this.porting_table_input.Dock = System.Windows.Forms.DockStyle.Fill;
             this.porting_table_input.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.porting_table_input.Location = new System.Drawing.Point(7, 87);
@@ -113,11 +158,141 @@
             this.porting_table_input.Size = new System.Drawing.Size(441, 86);
             this.porting_table_input.TabIndex = 2;
             // 
+            // folder_button_label
+            // 
+            this.folder_button_label.AutoSize = true;
+            this.folder_button_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folder_button_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.folder_button_label.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.folder_button_label.Location = new System.Drawing.Point(110, 63);
+            this.folder_button_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.folder_button_label.Name = "folder_button_label";
+            this.folder_button_label.Size = new System.Drawing.Size(328, 17);
+            this.folder_button_label.TabIndex = 7;
+            this.folder_button_label.Text = "Works for everything.";
+            this.folder_button_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // input_label
+            // 
+            this.input_label.AutoSize = true;
+            this.porting_table_input.SetColumnSpan(this.input_label, 2);
+            this.input_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.input_label.Location = new System.Drawing.Point(3, 6);
+            this.input_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.input_label.Name = "input_label";
+            this.input_label.Size = new System.Drawing.Size(225, 16);
+            this.input_label.TabIndex = 3;
+            this.input_label.Text = "Select your item\'s files or folder";
+            // 
+            // files_button_label
+            // 
+            this.files_button_label.AutoSize = true;
+            this.files_button_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.files_button_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.files_button_label.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.files_button_label.Location = new System.Drawing.Point(110, 34);
+            this.files_button_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.files_button_label.Name = "files_button_label";
+            this.files_button_label.Size = new System.Drawing.Size(328, 17);
+            this.files_button_label.TabIndex = 6;
+            this.files_button_label.Text = "Optimized for reskins and collections.";
+            this.files_button_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // input_button
+            // 
+            this.input_button.AutoSize = true;
+            this.input_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.input_button.Image = global::JKPort.Properties.Resources.OpenFolder;
+            this.input_button.Location = new System.Drawing.Point(3, 60);
+            this.input_button.Name = "input_button";
+            this.input_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.input_button.Size = new System.Drawing.Size(101, 23);
+            this.input_button.TabIndex = 0;
+            this.input_button.Text = "Select folder...";
+            this.input_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.input_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.input_button.UseVisualStyleBackColor = true;
+            this.input_button.Click += new System.EventHandler(this.input_button_Click);
+            // 
+            // files_button
+            // 
+            this.files_button.AutoSize = true;
+            this.files_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.files_button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.files_button.Image = global::JKPort.Properties.Resources.DocumentCollection;
+            this.files_button.Location = new System.Drawing.Point(3, 31);
+            this.files_button.Name = "files_button";
+            this.files_button.Size = new System.Drawing.Size(101, 23);
+            this.files_button.TabIndex = 4;
+            this.files_button.Text = "Select files...";
+            this.files_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.files_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.files_button.UseVisualStyleBackColor = true;
+            this.files_button.Click += new System.EventHandler(this.files_button_Click);
+            // 
+            // output_panel
+            // 
+            this.output_panel.AutoSize = true;
+            this.output_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.output_panel.ColumnCount = 2;
+            this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.output_panel.Controls.Add(this.output_label, 0, 0);
+            this.output_panel.Controls.Add(this.output_folder, 1, 1);
+            this.output_panel.Controls.Add(this.output_dir, 0, 1);
+            this.output_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.output_panel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.output_panel.Location = new System.Drawing.Point(7, 182);
+            this.output_panel.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
+            this.output_panel.Name = "output_panel";
+            this.output_panel.RowCount = 2;
+            this.output_panel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.output_panel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.output_panel.Size = new System.Drawing.Size(441, 57);
+            this.output_panel.TabIndex = 3;
+            // 
+            // output_label
+            // 
+            this.output_label.AutoSize = true;
+            this.output_panel.SetColumnSpan(this.output_label, 2);
+            this.output_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output_label.Location = new System.Drawing.Point(3, 6);
+            this.output_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.output_label.Name = "output_label";
+            this.output_label.Size = new System.Drawing.Size(95, 16);
+            this.output_label.TabIndex = 3;
+            this.output_label.Text = "Output folder";
+            // 
+            // output_folder
+            // 
+            this.output_folder.AutoSize = true;
+            this.output_folder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.output_folder.Image = global::JKPort.Properties.Resources.ReplaceInFolder;
+            this.output_folder.Location = new System.Drawing.Point(337, 31);
+            this.output_folder.Name = "output_folder";
+            this.output_folder.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.output_folder.Size = new System.Drawing.Size(101, 23);
+            this.output_folder.TabIndex = 0;
+            this.output_folder.Text = "Select folder...";
+            this.output_folder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.output_folder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.output_folder.UseVisualStyleBackColor = true;
+            this.output_folder.Click += new System.EventHandler(this.output_folder_Click);
+            // 
+            // output_dir
+            // 
+            this.output_dir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.output_dir.Location = new System.Drawing.Point(3, 31);
+            this.output_dir.Name = "output_dir";
+            this.output_dir.Size = new System.Drawing.Size(328, 20);
+            this.output_dir.TabIndex = 1;
+            // 
             // details
             // 
             this.details.AutoSize = true;
             this.details.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.details.Controls.Add(this.tableLayoutPanel1);
+            this.details.Controls.Add(this.details_table);
             this.details.Dock = System.Windows.Forms.DockStyle.Fill;
             this.details.Location = new System.Drawing.Point(7, 248);
             this.details.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
@@ -128,30 +303,30 @@
             this.details.Text = "Item details";
             this.details.Visible = false;
             // 
-            // tableLayoutPanel1
+            // details_table
             // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.item_size, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.item_size_label, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.item_dir_label, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.item_title, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.item_dir, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.item_type, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(3);
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(435, 81);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.details_table.AutoSize = true;
+            this.details_table.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.details_table.ColumnCount = 2;
+            this.details_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.details_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.details_table.Controls.Add(this.item_size, 1, 2);
+            this.details_table.Controls.Add(this.item_size_label, 0, 2);
+            this.details_table.Controls.Add(this.item_dir_label, 0, 1);
+            this.details_table.Controls.Add(this.item_title, 0, 0);
+            this.details_table.Controls.Add(this.item_dir, 1, 1);
+            this.details_table.Controls.Add(this.item_type, 1, 0);
+            this.details_table.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.details_table.Location = new System.Drawing.Point(3, 16);
+            this.details_table.Name = "details_table";
+            this.details_table.Padding = new System.Windows.Forms.Padding(3);
+            this.details_table.RowCount = 3;
+            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.details_table.Size = new System.Drawing.Size(435, 81);
+            this.details_table.TabIndex = 0;
             // 
             // item_size
             // 
@@ -219,6 +394,18 @@
             this.item_type.TabIndex = 3;
             this.item_type.Text = "---";
             // 
+            // convert
+            // 
+            this.convert.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.convert.Location = new System.Drawing.Point(7, 357);
+            this.convert.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.convert.Name = "convert";
+            this.convert.Size = new System.Drawing.Size(441, 23);
+            this.convert.TabIndex = 13;
+            this.convert.Text = "Convert!";
+            this.convert.UseVisualStyleBackColor = true;
+            this.convert.Click += new System.EventHandler(this.convert_Click);
+            // 
             // progress_box
             // 
             this.progress_box.AutoSize = true;
@@ -266,6 +453,17 @@
             this.total_task_layout.Size = new System.Drawing.Size(429, 19);
             this.total_task_layout.TabIndex = 10;
             // 
+            // total_task_image
+            // 
+            this.total_task_image.Image = global::JKPort.Properties.Resources.TaskList;
+            this.total_task_image.Location = new System.Drawing.Point(1, 1);
+            this.total_task_image.Margin = new System.Windows.Forms.Padding(1);
+            this.total_task_image.Name = "total_task_image";
+            this.total_task_image.Size = new System.Drawing.Size(16, 16);
+            this.total_task_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.total_task_image.TabIndex = 9;
+            this.total_task_image.TabStop = false;
+            // 
             // progress_total
             // 
             this.progress_total.AutoSize = true;
@@ -284,194 +482,9 @@
             this.progressBarTotal.Step = 0;
             this.progressBarTotal.TabIndex = 5;
             // 
-            // label1
+            // files_dialog
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(63, 6);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(3);
-            this.label1.Size = new System.Drawing.Size(375, 59);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "\'JumpKingPlus Content Port\' is currently in beta.\r\nLet us know if you find any is" +
-    "sues or bugs over on the official Jump King Discord server.\r\nJumpKingPlus, 2023." +
-    "";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.LemonChiffon;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 7);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(441, 71);
-            this.tableLayoutPanel2.TabIndex = 12;
-            // 
-            // input_label
-            // 
-            this.input_label.AutoSize = true;
-            this.porting_table_input.SetColumnSpan(this.input_label, 2);
-            this.input_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input_label.Location = new System.Drawing.Point(3, 6);
-            this.input_label.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.input_label.Name = "input_label";
-            this.input_label.Size = new System.Drawing.Size(225, 16);
-            this.input_label.TabIndex = 3;
-            this.input_label.Text = "Select your item\'s files or folder";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoSize = true;
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(7, 182);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(441, 57);
-            this.tableLayoutPanel3.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.tableLayoutPanel3.SetColumnSpan(this.label2, 2);
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Output folder";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(328, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(7, 357);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(441, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Convert!";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label4.Location = new System.Drawing.Point(110, 34);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(328, 17);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Optimized for reskins and collections.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::JKPort.Properties.Resources.favicon;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(9, 9, 3, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // input_button
-            // 
-            this.input_button.AutoSize = true;
-            this.input_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.input_button.Image = global::JKPort.Properties.Resources.OpenFolder;
-            this.input_button.Location = new System.Drawing.Point(3, 60);
-            this.input_button.Name = "input_button";
-            this.input_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.input_button.Size = new System.Drawing.Size(101, 23);
-            this.input_button.TabIndex = 0;
-            this.input_button.Text = "Select folder...";
-            this.input_button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.input_button.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.AutoSize = true;
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Image = global::JKPort.Properties.Resources.DocumentCollection;
-            this.button3.Location = new System.Drawing.Point(3, 31);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Select files...";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Image = global::JKPort.Properties.Resources.ReplaceInFolder;
-            this.button1.Location = new System.Drawing.Point(337, 31);
-            this.button1.Name = "button1";
-            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(101, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Select folder...";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // total_task_image
-            // 
-            this.total_task_image.Image = global::JKPort.Properties.Resources.TaskList;
-            this.total_task_image.Location = new System.Drawing.Point(1, 1);
-            this.total_task_image.Margin = new System.Windows.Forms.Padding(1);
-            this.total_task_image.Name = "total_task_image";
-            this.total_task_image.Size = new System.Drawing.Size(16, 16);
-            this.total_task_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.total_task_image.TabIndex = 9;
-            this.total_task_image.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(110, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(328, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Works for everything.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.files_dialog.Multiselect = true;
             // 
             // Form1
             // 
@@ -489,23 +502,23 @@
             this.Text = "JumpKingPlus Content Port";
             this.main_panel.ResumeLayout(false);
             this.main_panel.PerformLayout();
+            this.banner_panel.ResumeLayout(false);
+            this.banner_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.banner_image)).EndInit();
             this.porting_table_input.ResumeLayout(false);
             this.porting_table_input.PerformLayout();
+            this.output_panel.ResumeLayout(false);
+            this.output_panel.PerformLayout();
             this.details.ResumeLayout(false);
             this.details.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.details_table.ResumeLayout(false);
+            this.details_table.PerformLayout();
             this.progress_box.ResumeLayout(false);
             this.progress_box.PerformLayout();
             this.progress_panel.ResumeLayout(false);
             this.progress_panel.PerformLayout();
             this.total_task_layout.ResumeLayout(false);
             this.total_task_layout.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.total_task_image)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,25 +537,27 @@
         private System.Windows.Forms.TableLayoutPanel porting_table_input;
         private System.Windows.Forms.Button input_button;
         private System.Windows.Forms.GroupBox details;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel details_table;
         private System.Windows.Forms.Label item_title;
         private System.Windows.Forms.Label item_type;
         private System.Windows.Forms.Label item_size_label;
         private System.Windows.Forms.Label item_size;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label banner_label;
         private System.Windows.Forms.Label item_dir_label;
         private System.Windows.Forms.Label item_dir;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel banner_panel;
+        private System.Windows.Forms.PictureBox banner_image;
         private System.Windows.Forms.Label input_label;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel output_panel;
+        private System.Windows.Forms.Label output_label;
+        private System.Windows.Forms.Button output_folder;
+        private System.Windows.Forms.TextBox output_dir;
+        private System.Windows.Forms.Button files_button;
+        private System.Windows.Forms.Label files_button_label;
+        private System.Windows.Forms.Button convert;
+        private System.Windows.Forms.Label folder_button_label;
+        private System.Windows.Forms.OpenFileDialog files_dialog;
+        private System.Windows.Forms.FolderBrowserDialog folder_dialog;
     }
 }
 
