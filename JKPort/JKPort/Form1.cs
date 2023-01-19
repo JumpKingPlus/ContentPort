@@ -1,4 +1,5 @@
-﻿using JKPort.Properties;
+﻿using JKPort.DataStructure;
+using JKPort.Properties;
 using JumpKing;
 using JumpKingPlus;
 using System;
@@ -201,17 +202,57 @@ namespace JKPort
                 if (wardrobe_settings.isCollection)
                 {
                     // convert xml of collection
+                    SetSettings set = Converter.ToSet(wardrobe_settings);
+                    XmlSerializerHelper.Serialize(data.Output+ "\\set_settings.xml", set);
                 } else
                 {
                     // convert xml of reskin
+                    ReskinSettings skin = Converter.ToSkin(wardrobe_settings);
+                    XmlSerializerHelper.Serialize(data.Output + "\\cosmetic_settings.xml", skin);
                 }
             }
             else
             {
                 // convert xml of level
+                Mod level_settings = (Mod)data.Data;
+                LevelSettings level = Converter.ToLevel(level_settings);
+                XmlSerializerHelper.Serialize(data.Output + "\\level_settings.xml", level);
             }
 
             // move files
+            if (data.Files != null)
+            {
+                foreach (string file in data.Files)
+                {
+                    if (file.EndsWith(".xml"))
+                        continue;
+
+                    File.Copy(file, data.Output + "\\" + Path.GetFileName(file), true);
+                }
+
+                // done
+                progressBarTotal.Value = 100;
+                return;
+            }
+
+            Copy(data.Directory, data.Output);
+
+            // done
+            progressBarTotal.Value = 100;
+            return;
         }
+
+        #region copy folder
+        private void Copy(string sourceDir, string targetDir)
+        {
+            Directory.CreateDirectory(targetDir);
+
+            foreach (var file in Directory.GetFiles(sourceDir))
+                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+
+            foreach (var directory in Directory.GetDirectories(sourceDir))
+                Copy(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+        }
+        #endregion
     }
 }
