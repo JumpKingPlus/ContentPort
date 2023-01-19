@@ -1,4 +1,6 @@
 ﻿using JKPort.Properties;
+using JumpKing;
+using JumpKingPlus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +23,20 @@ namespace JKPort
         }
 
         #region data
+        public enum ItemType
+        {
+            Level,
+            Skin,
+            Set
+        }
+
         public struct ItemData
         {
             public string Title;
             public string Directory;
             public string[] Files;
             public object Data;
-            public Type DataType;
+            public ItemType Type;
             public string Output;
         }
 
@@ -37,6 +46,15 @@ namespace JKPort
         private void FlushData()
         {
             data = new ItemData();
+        }
+        private void FlushUIData()
+        {
+            details.Text = "Item details";
+            item_type.Text = null;
+            item_dir.Text = null;
+            item_size.Text = null;
+            output_dir.Text = null;
+            convert.Enabled = false;
         }
         #endregion
 
@@ -52,7 +70,6 @@ namespace JKPort
 
         private void files_button_Click(object sender, EventArgs e)
         {
-            string message = "";
             if (files_dialog.ShowDialog() == DialogResult.OK)
             {
                 // quantity file check
@@ -68,11 +85,78 @@ namespace JKPort
                     return;
                 }
 
-                foreach (string file in files_dialog.FileNames)
+                var files = files_dialog.FileNames;
+                var directory = Path.GetDirectoryName(files[0]);
+
+                // deadass used select files for levels 💀
+                if (files.Contains($"{directory}\\mod.xml"))
                 {
-                    message += Path.GetFileName(file) + " - " + file + Environment.NewLine;
+                    MessageBox.Show(
+                        "Select files is made only for reskins and collections.\n" +
+                        "Use the \"Select folder...\" button to convert levels!",
+                        "Wrong conversion button",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error
+                    );
+                    return;
                 }
-                MessageBox.Show(message);
+
+                bool has_xml = false;
+                long size = 0;
+                string config_path = null;
+
+                foreach (string path in files)
+                {
+                    if (path.EndsWith(".xml"))
+                    {
+                        // too many xmls
+                        if (has_xml)
+                        {
+                            MessageBox.Show(
+                                "You selected more than one configuration file.\n" +
+                                "Make sure you ONLY select the configuration file (the xml file) that your item needs.",
+                                "Redundant XML files",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error
+                            );
+                            return;
+                        }
+                        config_path = path;
+                        has_xml = true;
+                    }
+                    size += new FileInfo(path).Length;
+                }
+
+                // no xml
+                if (!has_xml)
+                {
+                    MessageBox.Show(
+                        "You didn't select any configuration file.\n" +
+                        "Make sure you select the configuration file (the xml file).",
+                        "Missing XML file",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error
+                    );
+                    return;
+                }
+
+                float f_size = size / 1048576f;
+
+                data.Files = files;
+                data.Directory = directory;
+
+                WardrobeSettings settings = XmlSerializerHelper.Deserialize<WardrobeSettings>(config_path);
+                data.Data = settings;
+                data.Type = settings.isCollection ? ItemType.Set : ItemType.Skin;
+                data.Title = settings.isCollection ? settings.collection.Value.name : settings.name;
+
+                // show data
+                details.Text = data.Title;
+                item_type.Text = data.Type.ToString();
+                if (settings.isCollection)
+                    item_type.Text += $" (with {settings.collection.Value.Reskins.Length} skins)";
+                item_dir.Text = data.Directory;
+                output_dir.Text = data.Directory + "\\bin";
+                item_size.Text = f_size.ToString("#.##") + " MB";
+                details.Visible = true;
+                convert.Enabled = true;
             }
         }
 
@@ -82,38 +166,52 @@ namespace JKPort
                 output_dir.Text = folder_dialog.SelectedPath;
         }
 
-        private void convert_Click(object sender, EventArgs e)
+        private void output_dir_TextChanged(object sender, EventArgs e)
         {
-            progress_box.Visible = true;
-            if (MessageBox.Show($"{Settings.Default.is_first_time}", "setting?", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            data.Output = output_dir.Text;
+            var void_text = string.IsNullOrWhiteSpace(output_dir.Text);
+            if (!void_text && !convert.Enabled)
             {
-                Settings.Default.is_first_time = false;
+                convert.Enabled = true;
+                return;
+            }
+            if (void_text && convert.Enabled)
+            {
+                convert.Enabled = false;
             }
         }
 
-        #region settings
-        public static void AddOrUpdateAppSettings(string key, string value)
+        private void convert_Click(object sender, EventArgs e)
         {
-            try
+            progressBarTotal.Visible = true;
+            /* why did i need this???
+             * if (MessageBox.Show($"{Settings.Default.is_first_time}", "setting?", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
             {
-                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
-                if (settings[key] == null)
-                {
-                    settings.Add(key, value);
-                }
-                else
-                {
-                    settings[key].Value = value;
-                }
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
-            }
-            catch (ConfigurationErrorsException)
+                Settings.Default.is_first_time = false;
+            }*/
+
+            // create folder
+            if (!Directory.Exists(data.Output))
+                Directory.CreateDirectory(data.Output);
+
+            // convert based on item
+            if (data.Type != ItemType.Level)
             {
-                Console.WriteLine("Error writing app settings");
+                WardrobeSettings wardrobe_settings = (WardrobeSettings)data.Data;
+                if (wardrobe_settings.isCollection)
+                {
+                    // convert xml of collection
+                } else
+                {
+                    // convert xml of reskin
+                }
             }
+            else
+            {
+                // convert xml of level
+            }
+
+            // move files
         }
-        #endregion
     }
 }

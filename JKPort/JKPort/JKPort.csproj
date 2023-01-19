@@ -56,6 +56,7 @@
     <Compile Include="DataStructure\Old.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlSerializerHelper.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,9 +88,11 @@
     <Content Include="Resources\DocumentCollection.png" />
     <Content Include="Resources\favicon.png" />
     <Content Include="Resources\FolderInformation.png" />
+    <Content Include="Resources\FolderSuppressed.png" />
     <Content Include="Resources\OpenFolder.png" />
     <Content Include="Resources\OpenProjectFolder.png" />
     <Content Include="Resources\ReplaceInFolder.png" />
+    <Content Include="Resources\StatusInformation.png" />
     <Content Include="Resources\TaskList.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -93,6 +93,26 @@ namespace JKPort.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FolderInformation {
+            get {
+                object obj = ResourceManager.GetObject("FolderInformation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FolderSuppressed {
+            get {
+                object obj = ResourceManager.GetObject("FolderSuppressed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OpenFolder {
             get {
                 object obj = ResourceManager.GetObject("OpenFolder", resourceCulture);
@@ -116,6 +136,16 @@ namespace JKPort.Properties {
         internal static System.Drawing.Bitmap ReplaceInFolder {
             get {
                 object obj = ResourceManager.GetObject("ReplaceInFolder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StatusInformation {
+            get {
+                object obj = ResourceManager.GetObject("StatusInformation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

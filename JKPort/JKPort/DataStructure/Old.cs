@@ -3,11 +3,6 @@
 namespace JumpKingPlus
 {
     #region wardrobe
-    public struct Reskin
-    {
-        public Items skin;
-        public string name;
-    }
 
     public struct Collection
     {
