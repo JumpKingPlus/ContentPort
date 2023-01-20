@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,11 +53,15 @@ namespace JKPort
         private void FlushUIData()
         {
             details.Text = "Item details";
+            details.Visible = false;
             item_type.Text = null;
             item_dir.Text = null;
             item_size.Text = null;
             output_dir.Text = null;
+            convert.Text = "Convert!";
             convert.Enabled = false;
+            progressBarTotal.Value = 0;
+            progressBarTotal.Visible = false;
         }
         #endregion
 
@@ -63,9 +69,71 @@ namespace JKPort
         {
             if (folder_dialog.ShowDialog() == DialogResult.OK)
             {
-                data.Directory = folder_dialog.SelectedPath;
-                // if succeeded
-                output_dir.Text = folder_dialog.SelectedPath + $"/bin";
+                var directory = folder_dialog.SelectedPath;
+
+                // quantity file check
+                if (Directory.GetFiles(directory).Length < 2)
+                {
+                    MessageBox.Show(
+                        "The items you chose do not correspond to a structure of an item. " +
+                        "You need to select all the packed files and the configuration file.",
+                        "You can't select one file only!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+
+                // if there are more or less than 1 xml files
+                var root_files = Directory.GetFiles(directory, "*.xml", SearchOption.TopDirectoryOnly);
+                if (root_files.Length != 1)
+                {
+                    MessageBox.Show(
+                        "You must select ONE configuration file for converting your item.\n" +
+                        "Make sure you ONLY select the configuration file (the xml file) that your item needs.",
+                        "Missing or redundant XML files",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error
+                    );
+                    return;
+                }
+
+                // separate level from cosmetic
+                if (root_files[0].EndsWith("\\mod.xml"))
+                {
+                    Mod settings = XmlSerializerHelper.Deserialize<Mod>(root_files[0]);
+                    data.Data = settings;
+                    data.Type = ItemType.Level;
+                    data.Title = settings.About.title;
+                } else
+                {
+                    WardrobeSettings settings = XmlSerializerHelper.Deserialize<WardrobeSettings>(root_files[0]);
+                    data.Data = settings;
+                    data.Type = settings.isCollection ? ItemType.Set : ItemType.Skin;
+                    data.Title = settings.isCollection ? settings.collection.Value.name : settings.name;
+                }
+
+                long size = 0;
+                foreach (string path in Directory.GetFiles(directory,"*.*", SearchOption.AllDirectories))
+                    size += new FileInfo(path).Length;
+
+                float f_size = size / 1048576f;
+                data.Directory = directory;
+
+                // show data
+                details.Text = data.Title;
+                item_type.Text = data.Type.ToString();
+
+                if (data.Type == ItemType.Set)
+                {
+                    WardrobeSettings settings = (WardrobeSettings)data.Data;
+                    item_type.Text += $" (with {settings.collection.Value.Reskins.Length} skins)";
+                }
+
+                item_dir.Text = data.Directory;
+                output_dir.Text = data.Directory + "\\bin";
+                item_size.Text = f_size.ToString("#.##") + " MB";
+                details.Visible = true;
+                convert.Enabled = true;
             }
         }
 
@@ -171,6 +239,7 @@ namespace JKPort
         {
             data.Output = output_dir.Text;
             var void_text = string.IsNullOrWhiteSpace(output_dir.Text);
+            Console.WriteLine(output_dir.Text.Length);
             if (!void_text && !convert.Enabled)
             {
                 convert.Enabled = true;
@@ -192,10 +261,14 @@ namespace JKPort
             }*/
 
             // create folder
+            convert.Text = "Creating folder...";
+            progressBarTotal.Value = 20;
             if (!Directory.Exists(data.Output))
                 Directory.CreateDirectory(data.Output);
 
             // convert based on item
+            convert.Text = "Converting configuration...";
+            progressBarTotal.Value = 40;
             if (data.Type != ItemType.Level)
             {
                 WardrobeSettings wardrobe_settings = (WardrobeSettings)data.Data;
@@ -220,6 +293,8 @@ namespace JKPort
             }
 
             // move files
+            convert.Text = "Moving files in the output folder...";
+            progressBarTotal.Value = 60;
             if (data.Files != null)
             {
                 foreach (string file in data.Files)
@@ -231,15 +306,39 @@ namespace JKPort
                 }
 
                 // done
+                convert.Text = "Done!";
                 progressBarTotal.Value = 100;
                 return;
             }
 
             Copy(data.Directory, data.Output);
 
+            // clearing out folder
+            convert.Text = "Clearing out folder...";
+            progressBarTotal.Value = 80;
+            foreach (string path in Directory.GetFiles(data.Output, "*.xml", SearchOption.TopDirectoryOnly))
+            {
+                var name = Path.GetFileName(path);
+                if (!(name == "level_settings.xml" || name == "cosmetic_settings.xml" || name == "set_settings.xml"))
+                {
+                    File.Delete(path);
+                }
+            }
+
             // done
+            convert.Text = "Done!";
             progressBarTotal.Value = 100;
-            return;
+
+            if (MessageBox.Show(
+                "Your item has successfully converted to be compatible with Jump King.\n\n" +
+                "Would you like to open the folder containing your item?",
+                "Item successfully converted!",
+                MessageBoxButtons.YesNo ) == DialogResult.Yes)
+                Process.Start($@"{data.Output}");
+
+            // clear
+            FlushData();
+            FlushUIData();
         }
 
         #region copy folder
@@ -248,10 +347,18 @@ namespace JKPort
             Directory.CreateDirectory(targetDir);
 
             foreach (var file in Directory.GetFiles(sourceDir))
+            {
+                if (file.StartsWith(targetDir))
+                    continue;
                 File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+            }
 
             foreach (var directory in Directory.GetDirectories(sourceDir))
+            {
+                if (directory.StartsWith(targetDir) || directory.EndsWith("\\font"))
+                    continue;
                 Copy(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+            }
         }
         #endregion
     }
