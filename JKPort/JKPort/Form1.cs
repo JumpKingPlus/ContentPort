@@ -308,10 +308,25 @@ namespace JKPort
                 // done
                 convert.Text = "Done!";
                 progressBarTotal.Value = 100;
+
+                if (MessageBox.Show(
+                "Your item has successfully converted to be compatible with Jump King.\n\n" +
+                "Would you like to open the folder containing your item?",
+                "Item successfully converted!",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    Process.Start($@"{data.Output}");
+
+                // clear
+                FlushData();
+                FlushUIData();
                 return;
             }
 
             Copy(data.Directory, data.Output);
+
+            // should work, didnt test tho
+            File.Move(data.Output + "/props/textures/raven/gold_ring.xnb", data.Output + "/props/worlditems/gold_ring.xnb");
+            File.Move(data.Output + "/props/textures/raven/ruby.xnb", data.Output + "/props/worlditems/ruby.xnb");
 
             // clearing out folder
             convert.Text = "Clearing out folder...";

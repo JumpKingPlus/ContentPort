@@ -48,13 +48,13 @@
             this.item_size = new System.Windows.Forms.Label();
             this.item_dir = new System.Windows.Forms.Label();
             this.item_type = new System.Windows.Forms.Label();
+            this.item_dir_label = new System.Windows.Forms.PictureBox();
             this.item_type_label = new System.Windows.Forms.PictureBox();
+            this.item_size_label = new System.Windows.Forms.PictureBox();
             this.convert = new System.Windows.Forms.Button();
             this.progressBarTotal = new System.Windows.Forms.ProgressBar();
             this.files_dialog = new System.Windows.Forms.OpenFileDialog();
             this.folder_dialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.item_dir_label = new System.Windows.Forms.PictureBox();
-            this.item_size_label = new System.Windows.Forms.PictureBox();
             this.main_panel.SuspendLayout();
             this.banner_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.banner_image)).BeginInit();
@@ -62,8 +62,8 @@
             this.output_panel.SuspendLayout();
             this.details.SuspendLayout();
             this.details_table.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.item_type_label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.item_dir_label)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.item_type_label)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.item_size_label)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +103,7 @@
             this.banner_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.banner_panel.Size = new System.Drawing.Size(588, 87);
             this.banner_panel.TabIndex = 12;
+            this.banner_panel.Visible = false;
             // 
             // banner_label
             // 
@@ -371,6 +372,18 @@
             this.item_type.TabIndex = 3;
             this.item_type.Text = "---";
             // 
+            // item_dir_label
+            // 
+            this.item_dir_label.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.item_dir_label.Image = global::JKPort.Properties.Resources.FolderInformation;
+            this.item_dir_label.Location = new System.Drawing.Point(12, 44);
+            this.item_dir_label.Margin = new System.Windows.Forms.Padding(8);
+            this.item_dir_label.Name = "item_dir_label";
+            this.item_dir_label.Size = new System.Drawing.Size(16, 16);
+            this.item_dir_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.item_dir_label.TabIndex = 14;
+            this.item_dir_label.TabStop = false;
+            // 
             // item_type_label
             // 
             this.item_type_label.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -382,6 +395,17 @@
             this.item_type_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.item_type_label.TabIndex = 8;
             this.item_type_label.TabStop = false;
+            // 
+            // item_size_label
+            // 
+            this.item_size_label.Image = global::JKPort.Properties.Resources.FolderSuppressed;
+            this.item_size_label.Location = new System.Drawing.Point(12, 76);
+            this.item_size_label.Margin = new System.Windows.Forms.Padding(8);
+            this.item_size_label.Name = "item_size_label";
+            this.item_size_label.Size = new System.Drawing.Size(16, 16);
+            this.item_size_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.item_size_label.TabIndex = 15;
+            this.item_size_label.TabStop = false;
             // 
             // convert
             // 
@@ -411,29 +435,6 @@
             // 
             this.files_dialog.Multiselect = true;
             // 
-            // item_dir_label
-            // 
-            this.item_dir_label.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.item_dir_label.Image = global::JKPort.Properties.Resources.FolderInformation;
-            this.item_dir_label.Location = new System.Drawing.Point(12, 44);
-            this.item_dir_label.Margin = new System.Windows.Forms.Padding(8);
-            this.item_dir_label.Name = "item_dir_label";
-            this.item_dir_label.Size = new System.Drawing.Size(16, 16);
-            this.item_dir_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.item_dir_label.TabIndex = 14;
-            this.item_dir_label.TabStop = false;
-            // 
-            // item_size_label
-            // 
-            this.item_size_label.Image = global::JKPort.Properties.Resources.FolderSuppressed;
-            this.item_size_label.Location = new System.Drawing.Point(12, 76);
-            this.item_size_label.Margin = new System.Windows.Forms.Padding(8);
-            this.item_size_label.Name = "item_size_label";
-            this.item_size_label.Size = new System.Drawing.Size(16, 16);
-            this.item_size_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.item_size_label.TabIndex = 15;
-            this.item_size_label.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -462,8 +463,8 @@
             this.details.PerformLayout();
             this.details_table.ResumeLayout(false);
             this.details_table.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.item_type_label)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.item_dir_label)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.item_type_label)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.item_size_label)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
