@@ -80,10 +80,10 @@
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
-            this.main_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.main_panel.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Padding = new System.Windows.Forms.Padding(5);
-            this.main_panel.Size = new System.Drawing.Size(1067, 836);
+            this.main_panel.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.main_panel.Size = new System.Drawing.Size(1921, 1505);
             this.main_panel.TabIndex = 0;
             // 
             // banner_panel
@@ -96,12 +96,12 @@
             this.banner_panel.Controls.Add(this.banner_image, 0, 0);
             this.banner_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banner_panel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.banner_panel.Location = new System.Drawing.Point(9, 9);
-            this.banner_panel.Margin = new System.Windows.Forms.Padding(4);
+            this.banner_panel.Location = new System.Drawing.Point(16, 16);
+            this.banner_panel.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.banner_panel.Name = "banner_panel";
             this.banner_panel.RowCount = 1;
             this.banner_panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.banner_panel.Size = new System.Drawing.Size(588, 87);
+            this.banner_panel.Size = new System.Drawing.Size(1053, 157);
             this.banner_panel.TabIndex = 12;
             this.banner_panel.Visible = false;
             // 
@@ -111,11 +111,11 @@
             this.banner_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banner_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.banner_label.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.banner_label.Location = new System.Drawing.Point(84, 7);
-            this.banner_label.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.banner_label.Location = new System.Drawing.Point(151, 13);
+            this.banner_label.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.banner_label.Name = "banner_label";
-            this.banner_label.Padding = new System.Windows.Forms.Padding(4);
-            this.banner_label.Size = new System.Drawing.Size(500, 73);
+            this.banner_label.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.banner_label.Size = new System.Drawing.Size(895, 131);
             this.banner_label.TabIndex = 11;
             this.banner_label.Text = "\'JumpKingPlus Content Port\' is currently in beta.\r\nLet us know if you find any is" +
     "sues or bugs over on the official Jump King Discord server.\r\nJumpKingPlus, 2023." +
@@ -125,10 +125,10 @@
             // 
             this.banner_image.Dock = System.Windows.Forms.DockStyle.Fill;
             this.banner_image.Image = global::JKPort.Properties.Resources.favicon;
-            this.banner_image.Location = new System.Drawing.Point(12, 11);
-            this.banner_image.Margin = new System.Windows.Forms.Padding(12, 11, 4, 11);
+            this.banner_image.Location = new System.Drawing.Point(22, 20);
+            this.banner_image.Margin = new System.Windows.Forms.Padding(22, 20, 7, 20);
             this.banner_image.Name = "banner_image";
-            this.banner_image.Size = new System.Drawing.Size(64, 65);
+            this.banner_image.Size = new System.Drawing.Size(115, 117);
             this.banner_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.banner_image.TabIndex = 12;
             this.banner_image.TabStop = false;
@@ -147,14 +147,14 @@
             this.porting_table_input.Controls.Add(this.files_button, 0, 1);
             this.porting_table_input.Dock = System.Windows.Forms.DockStyle.Fill;
             this.porting_table_input.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.porting_table_input.Location = new System.Drawing.Point(9, 107);
-            this.porting_table_input.Margin = new System.Windows.Forms.Padding(4, 7, 4, 4);
+            this.porting_table_input.Location = new System.Drawing.Point(16, 193);
+            this.porting_table_input.Margin = new System.Windows.Forms.Padding(7, 13, 7, 7);
             this.porting_table_input.Name = "porting_table_input";
             this.porting_table_input.RowCount = 3;
             this.porting_table_input.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.porting_table_input.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.porting_table_input.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.porting_table_input.Size = new System.Drawing.Size(588, 102);
+            this.porting_table_input.Size = new System.Drawing.Size(1053, 176);
             this.porting_table_input.TabIndex = 2;
             // 
             // folder_button_label
@@ -163,10 +163,10 @@
             this.folder_button_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.folder_button_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.folder_button_label.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.folder_button_label.Location = new System.Drawing.Point(129, 75);
-            this.folder_button_label.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.folder_button_label.Location = new System.Drawing.Point(214, 132);
+            this.folder_button_label.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.folder_button_label.Name = "folder_button_label";
-            this.folder_button_label.Size = new System.Drawing.Size(455, 20);
+            this.folder_button_label.Size = new System.Drawing.Size(832, 31);
             this.folder_button_label.TabIndex = 7;
             this.folder_button_label.Text = "Works for everything.";
             this.folder_button_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,10 +176,10 @@
             this.input_label.AutoSize = true;
             this.porting_table_input.SetColumnSpan(this.input_label, 2);
             this.input_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input_label.Location = new System.Drawing.Point(4, 7);
-            this.input_label.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.input_label.Location = new System.Drawing.Point(7, 13);
+            this.input_label.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.input_label.Name = "input_label";
-            this.input_label.Size = new System.Drawing.Size(280, 20);
+            this.input_label.Size = new System.Drawing.Size(460, 36);
             this.input_label.TabIndex = 3;
             this.input_label.Text = "Select your item\'s files or folder";
             // 
@@ -189,10 +189,10 @@
             this.files_button_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.files_button_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.files_button_label.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.files_button_label.Location = new System.Drawing.Point(129, 41);
-            this.files_button_label.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.files_button_label.Location = new System.Drawing.Point(214, 75);
+            this.files_button_label.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.files_button_label.Name = "files_button_label";
-            this.files_button_label.Size = new System.Drawing.Size(455, 20);
+            this.files_button_label.Size = new System.Drawing.Size(832, 31);
             this.files_button_label.TabIndex = 6;
             this.files_button_label.Text = "Optimized for reskins and collections.";
             this.files_button_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -202,11 +202,11 @@
             this.input_button.AutoSize = true;
             this.input_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.input_button.Image = global::JKPort.Properties.Resources.OpenFolder;
-            this.input_button.Location = new System.Drawing.Point(4, 72);
-            this.input_button.Margin = new System.Windows.Forms.Padding(4);
+            this.input_button.Location = new System.Drawing.Point(7, 126);
+            this.input_button.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.input_button.Name = "input_button";
             this.input_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.input_button.Size = new System.Drawing.Size(117, 26);
+            this.input_button.Size = new System.Drawing.Size(193, 39);
             this.input_button.TabIndex = 0;
             this.input_button.Text = "Select folder...";
             this.input_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -220,10 +220,10 @@
             this.files_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.files_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.files_button.Image = global::JKPort.Properties.Resources.DocumentCollection;
-            this.files_button.Location = new System.Drawing.Point(4, 38);
-            this.files_button.Margin = new System.Windows.Forms.Padding(4);
+            this.files_button.Location = new System.Drawing.Point(7, 69);
+            this.files_button.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.files_button.Name = "files_button";
-            this.files_button.Size = new System.Drawing.Size(117, 26);
+            this.files_button.Size = new System.Drawing.Size(193, 43);
             this.files_button.TabIndex = 4;
             this.files_button.Text = "Select files...";
             this.files_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -238,19 +238,19 @@
             this.output_panel.ColumnCount = 2;
             this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.output_panel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.output_panel.Controls.Add(this.output_label, 0, 0);
             this.output_panel.Controls.Add(this.output_folder, 1, 1);
             this.output_panel.Controls.Add(this.output_dir, 0, 1);
             this.output_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.output_panel.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.output_panel.Location = new System.Drawing.Point(9, 220);
-            this.output_panel.Margin = new System.Windows.Forms.Padding(4, 7, 4, 4);
+            this.output_panel.Location = new System.Drawing.Point(16, 389);
+            this.output_panel.Margin = new System.Windows.Forms.Padding(7, 13, 7, 7);
             this.output_panel.Name = "output_panel";
             this.output_panel.RowCount = 2;
             this.output_panel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.output_panel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.output_panel.Size = new System.Drawing.Size(588, 68);
+            this.output_panel.Size = new System.Drawing.Size(1053, 115);
             this.output_panel.TabIndex = 3;
             // 
             // output_label
@@ -258,10 +258,10 @@
             this.output_label.AutoSize = true;
             this.output_panel.SetColumnSpan(this.output_label, 2);
             this.output_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.output_label.Location = new System.Drawing.Point(4, 7);
-            this.output_label.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.output_label.Location = new System.Drawing.Point(7, 13);
+            this.output_label.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.output_label.Name = "output_label";
-            this.output_label.Size = new System.Drawing.Size(119, 20);
+            this.output_label.Size = new System.Drawing.Size(200, 36);
             this.output_label.TabIndex = 3;
             this.output_label.Text = "Output folder";
             // 
@@ -270,11 +270,11 @@
             this.output_folder.AutoSize = true;
             this.output_folder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.output_folder.Image = global::JKPort.Properties.Resources.ReplaceInFolder;
-            this.output_folder.Location = new System.Drawing.Point(467, 38);
-            this.output_folder.Margin = new System.Windows.Forms.Padding(4);
+            this.output_folder.Location = new System.Drawing.Point(853, 69);
+            this.output_folder.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.output_folder.Name = "output_folder";
             this.output_folder.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.output_folder.Size = new System.Drawing.Size(117, 26);
+            this.output_folder.Size = new System.Drawing.Size(193, 39);
             this.output_folder.TabIndex = 0;
             this.output_folder.Text = "Select folder...";
             this.output_folder.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -285,10 +285,10 @@
             // output_dir
             // 
             this.output_dir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.output_dir.Location = new System.Drawing.Point(4, 38);
-            this.output_dir.Margin = new System.Windows.Forms.Padding(4);
+            this.output_dir.Location = new System.Drawing.Point(7, 69);
+            this.output_dir.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.output_dir.Name = "output_dir";
-            this.output_dir.Size = new System.Drawing.Size(455, 22);
+            this.output_dir.Size = new System.Drawing.Size(832, 35);
             this.output_dir.TabIndex = 1;
             this.output_dir.TextChanged += new System.EventHandler(this.output_dir_TextChanged);
             // 
@@ -299,11 +299,11 @@
             this.details.Controls.Add(this.details_table);
             this.details.Dock = System.Windows.Forms.DockStyle.Fill;
             this.details.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.details.Location = new System.Drawing.Point(9, 299);
-            this.details.Margin = new System.Windows.Forms.Padding(4, 7, 4, 4);
+            this.details.Location = new System.Drawing.Point(16, 524);
+            this.details.Margin = new System.Windows.Forms.Padding(7, 13, 7, 7);
             this.details.Name = "details";
-            this.details.Padding = new System.Windows.Forms.Padding(4);
-            this.details.Size = new System.Drawing.Size(588, 131);
+            this.details.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.details.Size = new System.Drawing.Size(1053, 211);
             this.details.TabIndex = 10;
             this.details.TabStop = false;
             this.details.Text = "Item details";
@@ -323,16 +323,16 @@
             this.details_table.Controls.Add(this.item_type_label, 0, 0);
             this.details_table.Controls.Add(this.item_size_label, 0, 2);
             this.details_table.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.details_table.Location = new System.Drawing.Point(4, 23);
-            this.details_table.Margin = new System.Windows.Forms.Padding(4);
+            this.details_table.Location = new System.Drawing.Point(7, 41);
+            this.details_table.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.details_table.Name = "details_table";
-            this.details_table.Padding = new System.Windows.Forms.Padding(4);
+            this.details_table.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.details_table.RowCount = 3;
             this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.details_table.Size = new System.Drawing.Size(580, 104);
+            this.details_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.details_table.Size = new System.Drawing.Size(1039, 163);
             this.details_table.TabIndex = 0;
             // 
             // item_size
@@ -340,10 +340,10 @@
             this.item_size.AutoSize = true;
             this.item_size.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.item_size.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.item_size.Location = new System.Drawing.Point(44, 76);
-            this.item_size.Margin = new System.Windows.Forms.Padding(8, 8, 4, 4);
+            this.item_size.Location = new System.Drawing.Point(65, 120);
+            this.item_size.Margin = new System.Windows.Forms.Padding(14, 14, 7, 7);
             this.item_size.Name = "item_size";
-            this.item_size.Size = new System.Drawing.Size(19, 16);
+            this.item_size.Size = new System.Drawing.Size(37, 29);
             this.item_size.TabIndex = 5;
             this.item_size.Text = "---";
             // 
@@ -352,11 +352,11 @@
             this.item_dir.AutoSize = true;
             this.item_dir.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.item_dir.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.item_dir.Location = new System.Drawing.Point(44, 44);
-            this.item_dir.Margin = new System.Windows.Forms.Padding(8, 8, 4, 4);
-            this.item_dir.MaximumSize = new System.Drawing.Size(480, 82);
+            this.item_dir.Location = new System.Drawing.Point(65, 70);
+            this.item_dir.Margin = new System.Windows.Forms.Padding(14, 14, 7, 7);
+            this.item_dir.MaximumSize = new System.Drawing.Size(864, 148);
             this.item_dir.Name = "item_dir";
-            this.item_dir.Size = new System.Drawing.Size(19, 16);
+            this.item_dir.Size = new System.Drawing.Size(37, 29);
             this.item_dir.TabIndex = 7;
             this.item_dir.Text = "---";
             // 
@@ -365,10 +365,10 @@
             this.item_type.AutoSize = true;
             this.item_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.item_type.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.item_type.Location = new System.Drawing.Point(44, 10);
-            this.item_type.Margin = new System.Windows.Forms.Padding(8, 6, 4, 4);
+            this.item_type.Location = new System.Drawing.Point(65, 18);
+            this.item_type.Margin = new System.Windows.Forms.Padding(14, 11, 7, 7);
             this.item_type.Name = "item_type";
-            this.item_type.Size = new System.Drawing.Size(23, 18);
+            this.item_type.Size = new System.Drawing.Size(41, 31);
             this.item_type.TabIndex = 3;
             this.item_type.Text = "---";
             // 
@@ -376,10 +376,10 @@
             // 
             this.item_dir_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.item_dir_label.Image = global::JKPort.Properties.Resources.FolderInformation;
-            this.item_dir_label.Location = new System.Drawing.Point(12, 44);
-            this.item_dir_label.Margin = new System.Windows.Forms.Padding(8);
+            this.item_dir_label.Location = new System.Drawing.Point(21, 70);
+            this.item_dir_label.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
             this.item_dir_label.Name = "item_dir_label";
-            this.item_dir_label.Size = new System.Drawing.Size(16, 16);
+            this.item_dir_label.Size = new System.Drawing.Size(16, 22);
             this.item_dir_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.item_dir_label.TabIndex = 14;
             this.item_dir_label.TabStop = false;
@@ -388,10 +388,10 @@
             // 
             this.item_type_label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.item_type_label.Image = global::JKPort.Properties.Resources.StatusInformation;
-            this.item_type_label.Location = new System.Drawing.Point(12, 12);
-            this.item_type_label.Margin = new System.Windows.Forms.Padding(8);
+            this.item_type_label.Location = new System.Drawing.Point(21, 21);
+            this.item_type_label.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
             this.item_type_label.Name = "item_type_label";
-            this.item_type_label.Size = new System.Drawing.Size(16, 16);
+            this.item_type_label.Size = new System.Drawing.Size(16, 21);
             this.item_type_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.item_type_label.TabIndex = 8;
             this.item_type_label.TabStop = false;
@@ -399,8 +399,8 @@
             // item_size_label
             // 
             this.item_size_label.Image = global::JKPort.Properties.Resources.FolderSuppressed;
-            this.item_size_label.Location = new System.Drawing.Point(12, 76);
-            this.item_size_label.Margin = new System.Windows.Forms.Padding(8);
+            this.item_size_label.Location = new System.Drawing.Point(21, 120);
+            this.item_size_label.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
             this.item_size_label.Name = "item_size_label";
             this.item_size_label.Size = new System.Drawing.Size(16, 16);
             this.item_size_label.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -411,10 +411,10 @@
             // 
             this.convert.Dock = System.Windows.Forms.DockStyle.Fill;
             this.convert.Enabled = false;
-            this.convert.Location = new System.Drawing.Point(9, 441);
-            this.convert.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
+            this.convert.Location = new System.Drawing.Point(16, 755);
+            this.convert.Margin = new System.Windows.Forms.Padding(7, 13, 7, 13);
             this.convert.Name = "convert";
-            this.convert.Size = new System.Drawing.Size(588, 28);
+            this.convert.Size = new System.Drawing.Size(1053, 50);
             this.convert.TabIndex = 13;
             this.convert.Text = "Convert!";
             this.convert.UseVisualStyleBackColor = true;
@@ -423,10 +423,10 @@
             // progressBarTotal
             // 
             this.progressBarTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBarTotal.Location = new System.Drawing.Point(9, 480);
-            this.progressBarTotal.Margin = new System.Windows.Forms.Padding(4, 4, 7, 4);
+            this.progressBarTotal.Location = new System.Drawing.Point(16, 825);
+            this.progressBarTotal.Margin = new System.Windows.Forms.Padding(7, 7, 13, 7);
             this.progressBarTotal.Name = "progressBarTotal";
-            this.progressBarTotal.Size = new System.Drawing.Size(585, 30);
+            this.progressBarTotal.Size = new System.Drawing.Size(1047, 54);
             this.progressBarTotal.Step = 0;
             this.progressBarTotal.TabIndex = 5;
             this.progressBarTotal.Visible = false;
@@ -437,15 +437,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1067, 836);
+            this.ClientSize = new System.Drawing.Size(1921, 1505);
             this.Controls.Add(this.main_panel);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

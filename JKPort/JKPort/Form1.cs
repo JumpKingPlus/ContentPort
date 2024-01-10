@@ -1,4 +1,5 @@
 ﻿using JKPort.DataStructure;
+using JKPort.Extract;
 using JKPort.Properties;
 using JumpKing;
 using JumpKingPlus;
@@ -302,6 +303,25 @@ namespace JKPort
                     if (file.EndsWith(".xml"))
                         continue;
 
+                    convert.Text = $"Extracting: {file}";
+                    
+                    if (file.EndsWith(".xnb"))
+                    {
+                        // depack
+                        try
+                        {
+                            XnbExtractor.Extract(file, data.Output + "\\" + Path.GetFileName(file), true, true, true, false);
+                        }
+                        catch (Exception args)
+                        {
+                            MessageBox.Show(
+                                $"{args.Message}\n\n{args.StackTrace}",
+                                "An exception has been thrown!", 
+                                MessageBoxButtons.OK
+                            );
+                        }
+                        continue;
+                    }
                     File.Copy(file, data.Output + "\\" + Path.GetFileName(file), true);
                 }
 
@@ -323,10 +343,65 @@ namespace JKPort
             }
 
             Copy(data.Directory, data.Output);
+            if (FailedExtracting.Count > 0)
+            {
+                string text = "Content Port couldn't decompile the following files:\n";
+                foreach (string item in FailedExtracting)
+                {
+                    text += "\n";
+                    text += item.Replace(data.Directory+"\\", "");
+                }
+                text += "\n\nIf you want to open the following item on Worldsmith, you will need to find and place the original non-XNB (not compiled) files in their respective folders in order to open it on Worldsmith!" +
+                    "\n\nIf you HAVE access to all your original/not-compiled missing files listed above, click \"Yes\"." +
+                    "\n\nIf you DON'T KNOW or DON'T HAVE access to your original/not-compiled missing files listed above, click \"No\".";
 
-            // should work, didnt test tho
-            File.Move(data.Output + "/props/textures/raven/gold_ring.xnb", data.Output + "/props/worlditems/gold_ring.xnb");
-            File.Move(data.Output + "/props/textures/raven/ruby.xnb", data.Output + "/props/worlditems/ruby.xnb");
+                var result = MessageBox.Show(
+                    text: text,
+                    caption: "Some files couldn't be extracted/decompiled!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    string txtfile = "Content Port left off for you to find the following files:\n";
+                    foreach (string item in FailedExtracting)
+                    {
+                        txtfile += "\n";
+                        txtfile += item.Replace(".xnb", "");
+                    }
+                    txtfile += "\n\nOnce you have found all the files and placed them in their relative folders, your item is ready to be used on Worldsmith.\nIf you don't have the following files, convert your item again and follow the details on screen." +
+                        "\n\njingsupalike sorry for the inconvenience.";
+                    
+                    string fileName = $@"{data.Directory}\FILES_MISSING.txt";
+                    File.Delete(fileName);
+                    File.WriteAllText($@"{data.Directory}\FILES_MISSING.txt", txtfile);
+                    Process.Start("notepad.exe", fileName);
+                }
+                else
+                {
+                    // this is held by duct tape but works
+                    Directory.CreateDirectory(data.Directory + "\\temp\\");
+                    File.Move(data.Output + "\\level_settings.xml", data.Directory + $"\\temp\\level_settings.xml");
+                    Directory.Delete(data.Output, true);
+                    Directory.CreateDirectory(data.Output);
+                    File.Move(data.Directory + $"\\temp\\level_settings.xml", data.Output + "\\level_settings.xml");
+                    Directory.Delete(data.Directory + "\\temp", true);
+
+                    Copy(data.Directory, data.Output, true);
+
+                    var open_website = MessageBox.Show("In order to upload your item, you will need to use the legacy version of Worldsmith.", "Not compatible with Worldsmith", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (open_website == DialogResult.Yes)
+                    {
+                        //Process.Start(url);
+                    }
+                }
+            }
+
+            if (data.Type == ItemType.Level)
+            {
+                // should work
+                File.Move(data.Output + "/props/textures/raven/gold_ring.png", data.Output + "/props/worlditems/gold_ring.png");
+                File.Move(data.Output + "/props/textures/raven/ruby.png", data.Output + "/props/worlditems/ruby.png");
+            }
 
             // clearing out folder
             convert.Text = "Clearing out folder...";
@@ -354,10 +429,14 @@ namespace JKPort
             // clear
             FlushData();
             FlushUIData();
+            FailedExtracting.Clear();
         }
 
+        public static List<string> FailedExtracting = new List<string>();
+
+
         #region copy folder
-        private void Copy(string sourceDir, string targetDir)
+    private void Copy(string sourceDir, string targetDir, bool forceCopy = false)
         {
             Directory.CreateDirectory(targetDir);
 
@@ -365,7 +444,25 @@ namespace JKPort
             {
                 if (file.StartsWith(targetDir))
                     continue;
-                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+
+                if (!file.EndsWith(".xnb") || forceCopy)
+                    File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)), true);
+                else
+                {
+                    try
+                    {
+                        XnbExtractor.Extract(file, Path.Combine(targetDir, Path.GetFileName(file)), true, true, true, false);
+                    }
+                    catch (Exception args)
+                    {
+                        FailedExtracting.Add(file);
+                        //MessageBox.Show(
+                        //    $"{args.Message}\n\n{args.StackTrace}",
+                        //    "An exception has been thrown!",
+                        //    MessageBoxButtons.OK
+                        //);
+                    }
+                }
             }
 
             foreach (var directory in Directory.GetDirectories(sourceDir))

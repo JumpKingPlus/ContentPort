@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructure\Converter.cs" />
+    <Compile Include="Extract\DxtUtil.cs" />
+    <Compile Include="Extract\HuffTable.cs" />
+    <Compile Include="Extract\LzxBuffer.cs" />
+    <Compile Include="Extract\LzxDecoder.cs" />
+    <Compile Include="Extract\Utils.cs" />
+    <Compile Include="Extract\XnbExtractor.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
