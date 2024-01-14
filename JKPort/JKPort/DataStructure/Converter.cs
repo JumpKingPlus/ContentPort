@@ -66,23 +66,50 @@ namespace JKPort.DataStructure
             #endregion
 
             #region ending
+            // mb
             settings.Ending.MainBabe = p_settings.Ending.MainBabe;
 
             settings.Ending.MainItem = new ItemEnding();
             settings.Ending.MainItem.item = Items.Shoes;
             settings.Ending.MainItem.image = p_settings.Ending.MainShoes;
 
+            // nb+
             settings.Ending.SecondBabe = p_settings.Ending.NBPBabe;
 
             settings.Ending.SecondItem = new ItemEnding();
             settings.Ending.SecondItem.item = Items.GiantBoots;
             settings.Ending.SecondItem.image = p_settings.Ending.NBPShoes;
 
+            if (p_settings.About.ending_screen_nbp.HasValue)
+            {
+                if (p_settings.Ending.NBPBabe == null)
+                {
+                    settings.Ending.SecondBabe = p_settings.Ending.MainBabe;
+                }
+                if (p_settings.Ending.NBPShoes == null)
+                {
+                    settings.Ending.SecondItem.image = p_settings.Ending.MainShoes;
+                }
+            }
+
+            // gotb
             settings.Ending.ThirdBabe = p_settings.Ending.OwlBabe;
 
             settings.Ending.ThirdItem = new ItemEnding();
             settings.Ending.ThirdItem.item = Items.CapeOwl;
             settings.Ending.ThirdItem.image = p_settings.Ending.OwlBird;
+
+            if (p_settings.About.ending_screen_owl.HasValue)
+            {
+                if (p_settings.Ending.OwlBabe == null)
+                {
+                    settings.Ending.ThirdBabe = p_settings.Ending.MainBabe;
+                }
+                if (p_settings.Ending.OwlBird == null)
+                {
+                    settings.Ending.ThirdItem.image = p_settings.Ending.MainShoes;
+                }
+            }
             #endregion
 
             #region endinglines
@@ -96,6 +123,8 @@ namespace JKPort.DataStructure
             }
             settings.EndingLines = new_credits.ToArray();
             #endregion
+
+            settings.Tags = new string[0];
 
             return settings;
         }

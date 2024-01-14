@@ -57,6 +57,7 @@ namespace JumpKing
         public About About;
         public Ending Ending;
         public Credit[] EndingLines;
+        public string[] Tags;
     }
 
     public struct About
